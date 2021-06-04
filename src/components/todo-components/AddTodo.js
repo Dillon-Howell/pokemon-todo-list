@@ -34,7 +34,8 @@ function AddTodo(props) {
 					onChange={(evt) => setTitle(evt.target.value)}
 					data-testid='task-input-field'
 				/>
-				<IconButton>
+				<IconButton     type="submit"
+          className="transition duration-200 ease-in-out text-gray-400 focus:outline-none hover:text-pink-500 text-lg px-2 cursor-pointer">
 					<AddCircleIcon />
 				</IconButton>
 			</form>
