@@ -5,23 +5,27 @@ import { IconButton } from '@material-ui/core';
 
 function AddTodo(props) {
 	const [title, setTitle] = useState('');
+	const [priority, setPriority] = useState('');
 
 	const onSubmit = (evt) => {
-		// Stop form being submmited to same file and reloading the page
 		evt.preventDefault();
 
 		if (!title) {
 			alert('Please add a Pokemon task.');
 			return;
 		}
+		if (!priority) {
+			alert('Choose your Priority Please!');
+			return;
+		}
 
-		props.addTodo(title);
+		props.addTodo(title, priority || null);
 
 		setTitle('');
 	};
 
 	return (
-		<div className='mx-4 mt-6'>
+		<div>
 			<form
 				onSubmit={onSubmit}
 				className='flex items-center transition duration-500 ease-in-out py-2 border-b-2 border-gray-300 focus-within:border-b-2 focus-within:border-pink-600'
@@ -34,8 +38,21 @@ function AddTodo(props) {
 					onChange={(evt) => setTitle(evt.target.value)}
 					data-testid='task-input-field'
 				/>
-				<IconButton     type="submit"
-          className="transition duration-200 ease-in-out text-gray-400 focus:outline-none hover:text-pink-500 text-lg px-2 cursor-pointer">
+				<input
+					name='task-priority'
+					type='range'
+					min='0'
+					max='10'
+					id='priorityValue'
+					placeholder='Please assign priority to the task'
+					value={priority}
+					onChange={(evt) => setPriority(evt.target.value)}
+					data-testid='task-input-field'
+				/>
+				<IconButton
+					type='submit'
+					className='transition duration-200 ease-in-out text-gray-400 focus:outline-none hover:text-pink-500 text-lg px-2 cursor-pointer'
+				>
 					<AddCircleIcon />
 				</IconButton>
 			</form>
