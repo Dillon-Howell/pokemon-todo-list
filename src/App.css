@@ -1,4 +1,6 @@
 /* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+
 :root {
 	--primary-color: #e6ecff;
 	--dark-color: #333333;
@@ -407,6 +409,15 @@ table th {
 	width: 100%;
 	opacity: 0.9;
 	margin-bottom: 1rem;
+	list-style-type: none;
+}
+
+.navbar-title {
+	font-family: ZCOOL KuaiLe;
+	font-size: 40px;
+	color: deeppink;
+	text-shadow: 1px 1px darkmagenta;
+	padding-left: 6rem;
 }
 
 .navbar ul {
@@ -458,6 +469,10 @@ table th {
 	.navbar {
 		display: block;
 		text-align: center;
+	}
+
+	.navbar-title {
+		padding-left: 0rem;
 	}
 
 	.navbar ul {
